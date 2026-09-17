@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
+      - name: list files
+        run: ls -l
       - name: Configure AWS Creds using OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
