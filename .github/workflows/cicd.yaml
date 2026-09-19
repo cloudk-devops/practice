@@ -8,7 +8,7 @@ on:
           - dev
           - prod
 jobs:
-  print_hello:
+  print_env:
     runs-on: ubuntu-latest
     steps:
       - run: 
