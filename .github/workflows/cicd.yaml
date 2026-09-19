@@ -1,5 +1,5 @@
 on:
-  worflow_dispach:
+  worflow_dispatch:
 jobs:
   print hello:
     runs-on: ubuntu-latest
