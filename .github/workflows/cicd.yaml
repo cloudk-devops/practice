@@ -1,16 +1,17 @@
 on:
   workflow_dispatch:
     inputs:
-      name:
+      environment:
         required: true
-        type: string
-      age:
-        required: true
-        type: number
+        type: choice
+        options:
+          - dev
+          - prod
 jobs:
   print_hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello..${{ inputs.name}} age ${{ inputs.age }}"
+      - run: 
+          echo "This is:${{ inputs.environment }}"
 
 
