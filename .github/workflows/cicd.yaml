@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
 jobs:
   print_hello:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - run: echo "Hello..Muneer"
 
