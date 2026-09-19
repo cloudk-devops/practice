@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello..Muneer"
-      - run: sleep 1000
+      # - run: sleep 1000
+  sleep:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 10
 
 
