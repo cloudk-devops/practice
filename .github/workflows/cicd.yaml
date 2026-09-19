@@ -8,5 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello..Muneer"
+      - run: sh "sleep 100"
 
 
