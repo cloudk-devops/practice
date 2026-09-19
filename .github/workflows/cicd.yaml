@@ -1,5 +1,5 @@
 on:
-  worflow_dispact:
+  worflow_dispach:
 jobs:
   print hello:
     runs-on: ubuntu-latest
