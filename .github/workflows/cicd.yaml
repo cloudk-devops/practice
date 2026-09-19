@@ -1,15 +1,12 @@
 on:
   workflow_dispatch:
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-inputs:
-  name:
-    required: true
-    type: string
-  age:
-    required: false
-    type: number
+    inputs:
+      name:
+        required: true
+        type: string
+      age:
+        required: false
+        type: number
 jobs:
   print_hello:
     runs-on: ubuntu-latest
