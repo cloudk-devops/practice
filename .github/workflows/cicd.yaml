@@ -31,7 +31,7 @@ jobs:
       - name: Run tasks
         run: |
           echo "Doing some setup..."
-          sleep 100 # If this fails, the job fails.
+          sleep100 # If this fails, the job fails.
 
   # 2. The auto-retry helper job
   retry-on-failure:
