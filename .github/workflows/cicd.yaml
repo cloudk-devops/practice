@@ -11,6 +11,6 @@ jobs:
   print_hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello..Muneer"
+      - run: echo "Hello..${{ inputs.name}} age ${{ inputs.age }}"
 
 
