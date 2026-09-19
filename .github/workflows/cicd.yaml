@@ -1,23 +1,9 @@
-name: GitHub AWS OIDC
-on: 
-  workflow_dispatch:
-permissions:
-  id-token: write
-  contents: read
+on:
+  worflow_dispact:
 jobs:
-  oidc-test:
-    runs-on: [ubuntu-latest]
+  print hello:
+    runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
-        uses: actions/checkout@v4
-      - name: list files
-        run: ls -l
-      - name: Configure AWS Creds using OIDC
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-region: us-east-1
-          role-to-assume: ${{ secrets.AWS_IAM_ROLE }}
-      - name: Test aws creds
-        run: aws sts get-caller-identity 
+      run: echo "Hello..Muneer"
 
 
