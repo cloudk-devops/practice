@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
 jobs:
-  print hello:
+  print_hello:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello..Muneer"
