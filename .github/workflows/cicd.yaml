@@ -1,5 +1,8 @@
 on:
   workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   print_hello:
     runs-on: ubuntu-latest
