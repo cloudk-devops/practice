@@ -4,7 +4,7 @@ on:
       environment:
         required: true
         type: choice
-        default: ''
+        default: 'QA'
         options:
           - dev
           - prod
