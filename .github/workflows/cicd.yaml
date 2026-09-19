@@ -4,6 +4,7 @@ on:
       environment:
         required: true
         type: choice
+        default: 'dev'
         options:
           - dev
           - prod
