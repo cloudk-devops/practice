@@ -1,22 +1,51 @@
-on:
-  workflow_dispatch:
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+# on:
+#   workflow_dispatch:
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.ref }}
+#   cancel-in-progress: true
+# jobs:
+#   print_hello:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo "Hello..Muneer"
+#       # - run: sleep 1000
+#   retry-on-failure:
+#     runs-on: ubuntu-latest
+#     needs: print_hello
+#     if: failure() && github.run_attempt < 3
+#     steps:
+#       - 
+#         env:
+#           GH_TOKEN: ${{ github.token }}
+#         run: sleep10
+
+name: CI Workflow
+
+on: [push]
+
 jobs:
-  print_hello:
+  # 1. Your primary workload job
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello..Muneer"
-      # - run: sleep 1000
+      - name: Run tasks
+        run: |
+          echo "Doing some setup..."
+          sleep 100 # If this fails, the job fails.
+
+  # 2. The auto-retry helper job
   retry-on-failure:
     runs-on: ubuntu-latest
-    needs: print_hello
-    if: failure() && github.run_attempt < 3
+    needs: build-and-test
+    if: failure() && github.run_attempt < 3 # Retries up to 2 times (3 total attempts)
+    permissions:
+      actions: write # Required to trigger a workflow re-run
     steps:
-      - 
+      - name: Automatically trigger retry for failed jobs
         env:
           GH_TOKEN: ${{ github.token }}
-        run: sleep10
-
+        run: |
+          echo "Main job failed! Triggering automatic retry..."
+          # Re-runs only the failed job within this active workflow run
+          gh run rerun ${{ github.run_id }} --failed
 
