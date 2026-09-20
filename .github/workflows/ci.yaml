@@ -1,0 +1,17 @@
+name: backend
+on: 
+  workflow_dispatch:
+env:
+  appVersion: ""
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: checkout@v4
+      - name: display files
+        run: |
+          ls -l
+      
+
+        
