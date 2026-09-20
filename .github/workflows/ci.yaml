@@ -27,7 +27,7 @@ jobs:
         uses: docker/login-action@v4
         with:
           username: ${{ env.docker_user_id }}
-          password: ${{ secrets.DOCKER.PWD }}
+          password: ${{ secrets.PWD }}
       - name: list images
         run: docker images
          
