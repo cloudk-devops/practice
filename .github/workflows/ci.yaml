@@ -1,8 +1,8 @@
 name: backend
 on: 
   workflow_dispatch:
-env:
-  appVersion: ""
+# env:
+#   appVersion: ""
 jobs:
   backend:
     runs-on: ubuntu-latest
@@ -15,5 +15,6 @@ jobs:
       - name: read app version
         run: |
          echo "appVersion=$(jq -r .version package.json)" >> $GITHUB_ENV
+         echo "appVersion=${{ env.appVersion }}"
 
         
