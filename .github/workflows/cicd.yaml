@@ -1,17 +1,12 @@
 name: Test
 on: 
   workflow_dispatch:
-    inputs:
-      proceed:
-        # description: 'Proceed?'
-        required: true
-        type: choice
-        options:
-          - Yes
-          - No
 jobs:
-  run:
+  condition:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.proceed == 'Yes'}}
     steps:
-      - run: echo "This job executed after approvals"
+      - name: if feature
+        if: github.ref == 'refs/heads/main'
+        run: echo " Main brach Bro"
+
+        
