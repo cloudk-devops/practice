@@ -1,34 +1,9 @@
 name: Inputs
 on: 
-  push:
-  # workflow_dispatch: # Trigger manually
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'info'
-        type: choice
-        options:
-          - info
-          - warning
-          - debug
-      print_tags:
-        description: 'True to print to STDOUT'
-        required: true
-        type: boolean
-      tags:
-        description: 'Test scenario tags'
-        required: true
-        type: string
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true
-jobs: 
-  print-tag:
+  schedule:
+    - cron: '/2 * * * *'
+jobs:
+  run:
     runs-on: ubuntu-latest
     steps:
-    - name: Print the input tag to STDOUT
-      run: echo  The tags are ${{ inputs.tags }}
-    - name: Print the environment
-      run: echo  The tags are ${{ inputs.environment }} 
+      - run: echo "This job runs every 2 mins"
