@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       proceed:
-        description: 'Proceed?'
+        # description: 'Proceed?'
         required: true
         type: choice
         options:
