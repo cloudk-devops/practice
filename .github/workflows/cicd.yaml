@@ -1,4 +1,4 @@
-name: Inputs
+name: cron
 on: 
   schedule:
     - cron: '* * * * *'
