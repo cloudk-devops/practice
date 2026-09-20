@@ -1,9 +1,17 @@
-name: cron
+name: Test
 on: 
-  schedule:
-    - cron: '* * * * *'
+  push:
+inputs:
+  proceed:
+    description: 'Proceed?'
+    required: true
+    type: choice
+    options:
+      - Yes
+      - No
 jobs:
   run:
     runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.proceed == 'Yes'}}
     steps:
-      - run: echo "This job runs every 2 mins"
+      - run: echo "This job executed after approvals"
