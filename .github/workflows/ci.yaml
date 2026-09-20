@@ -13,9 +13,13 @@ jobs:
         run: |
           ls -l
       - name: read app version
+        id: get_version
         run: |
-         appVersion=$(jq -r .version package.json)
-         echo "appVersion=$appVersion" 
-         echo "appVersion=$appVersion"
+         echo "appVersion=$(jq -r .version package.json)" >> $GITHUB_OUTPUT
+      - name: display app version
+        run: |
+          echo "appVersion=${{ steps.get_version.outputs.appVersion }}"
+         
+         
 
         
