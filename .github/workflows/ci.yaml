@@ -23,13 +23,21 @@ jobs:
           echo "appVersion=${{ steps.get_version.outputs.appVersion }}"
       - name: install package dependencies
         run: npm install
-      - name: docker login
-        uses: docker/login-action@v4
-        with:
-          username: ${{ env.docker_user_id }}
-          password: ${{ secrets.PWD }}
-      - name: list images
-        run: docker images
+      # - name: docker login
+      #   uses: docker/login-action@v4
+      #   with:
+      #     username: ${{ env.docker_user_id }}
+      #     password: ${{ secrets.PWD }}
+      # - name: list images
+      #   run: docker images
+
+      #         - name: Docker Login and List Images
+        env:
+          DOCKER_PWD: ${{ secrets.PWD }}
+        run: |
+          echo "$DOCKER_PWD" | docker login -u "${{ env.docker_user_id }}" --password-stdin
+          docker images
+
          
 
         
