@@ -1,14 +1,14 @@
 name: Test
 on: 
   push:
-inputs:
-  proceed:
-    description: 'Proceed?'
-    required: true
-    type: choice
-    options:
-      - Yes
-      - No
+    inputs:
+      proceed:
+        description: 'Proceed?'
+        required: true
+        type: choice
+        options:
+          - Yes
+          - No
 jobs:
   run:
     runs-on: ubuntu-latest
