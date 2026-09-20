@@ -2,12 +2,14 @@ name: Test
 on: 
   workflow_dispatch:
 env:
-  Name: "Muneer"
+  Name: "Muneer" #Global VAR
 jobs:
   condition:
     runs-on: ubuntu-latest
     steps:
-      - name: if feature
+      - name: 
+        env:
+          Name: "Muneer Shaik"
         # if: github.ref == 'refs/heads/feature-**'
         run: echo "Name is $Name"
       
