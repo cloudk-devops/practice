@@ -7,9 +7,9 @@ jobs:
   condition:
     runs-on: ubuntu-latest
     steps:
-      - name: 
-        env:
-          Name: "Keerthi" # local VAR
+      # - name: 
+      #   env:
+      #     Name: "Keerthi" # local VAR
         # if: github.ref == 'refs/heads/feature-**'
         run: echo "Name is ${{ env.Name}} "
       
