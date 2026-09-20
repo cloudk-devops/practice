@@ -14,7 +14,8 @@ jobs:
           ls -l
       - name: read app version
         run: |
-         echo "appVersion=$(jq -r .version package.json)" >> $GITHUB_ENV
-         echo "appVersion=${{ env.appVersion }}"
+         appVersion=$(jq -r .version package.json)
+         echo "appVersion=$appVersion" >> $GITHUB_ENV
+         echo "appVersion=$appVersion"
 
         
