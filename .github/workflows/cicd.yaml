@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: if feature
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/feature-**'
         run: echo " Main brach Bro"
 
         
