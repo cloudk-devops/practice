@@ -7,6 +7,7 @@ jobs:
     steps:
       - name: if feature
         if: github.ref == 'refs/heads/feature-**'
-        run: echo " Main brach Bro"
+        run: echo "feature brach Bro"
+      
 
         
