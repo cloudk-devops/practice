@@ -12,6 +12,9 @@ jobs:
       - name: display files
         run: |
           ls -l
-      
+      - name: read app version
+        run: |
+          # Use jq to parse version and save to $GITHUB_ENV
+          echo "appVersion=$(jq -r .version package.json)" >> $GITHUB_ENV
 
         
