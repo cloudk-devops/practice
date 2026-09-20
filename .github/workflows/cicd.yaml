@@ -9,9 +9,9 @@ jobs:
     steps:
       - name: 
         env:
-          Name: "Muneer Shaik"
+          Name: "Keerthi" # local VAR
         # if: github.ref == 'refs/heads/feature-**'
-        run: echo "Name is $Name"
+        run: echo "Name is ${{ env.Name}} "
       
 
         
