@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: if feature
         # if: github.ref == 'refs/heads/feature-**'
-        run: echo "Name is {{ env.Name }}"
+        run: echo "Name is $Name"
       
 
         
