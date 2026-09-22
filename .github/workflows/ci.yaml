@@ -1,43 +1,17 @@
-name: backend
-on: 
+name: backend app CI process
+on:
   workflow_dispatch:
-env:
-  docker_user_id: "muneer092"
 jobs:
-  backend:
+  CI:
     runs-on: ubuntu-latest
-    permissions:
-      packages: read
     steps:
-      - name: checkout code
-        uses: actions/checkout@v5
-      - name: display files
+      - name: Read app version from package.json
         run: |
-          ls -l
-      - name: read app version
-        id: get_version
+          version=$( jq -r .version package.json)
+          echo "appVersion=$version" >> $GITHUB_ENV
+      - name: Display app version
         run: |
-         echo "appVersion=$(jq -r .version package.json)" >> $GITHUB_OUTPUT
-      - name: display app version
-        run: |
-          echo "appVersion=${{ steps.get_version.outputs.appVersion }}"
-      - name: install package dependencies
-        run: npm install
-      # - name: docker login
-      #   uses: docker/login-action@v4
-      #   with:
-      #     username: ${{ env.docker_user_id }}
-      #     password: ${{ secrets.PWD }}
-      # - name: list images
-      #   run: docker images
-
-      #         - name: Docker Login and List Images
-      - name: docker login
-        env:
-          DOCKER_PWD: ${{ secrets.PWD }}
-        run: |
-          echo "$DOCKER_PWD" | docker login -u "${{ env.docker_user_id }}" --password-stdin
-          docker images
+          echo "version is: ${{ env.appVersion }}"
 
          
 
