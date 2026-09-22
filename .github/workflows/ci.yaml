@@ -5,6 +5,8 @@ jobs:
   CI:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repo to runner
+        uses: actions/checkout@v5
       - name: Read app version from package.json
         run: |
           version=$( jq -r .version package.json)
