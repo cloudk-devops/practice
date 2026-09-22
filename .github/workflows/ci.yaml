@@ -14,6 +14,8 @@ jobs:
       - name: Display app version
         run: |
           echo "backend app version is: ${{ env.appVersion }}"
+      - name: install dependency
+        run: npm install
 
          
 
