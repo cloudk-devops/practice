@@ -13,7 +13,7 @@ jobs:
           echo "appVersion=$version" >> $GITHUB_ENV
       - name: Display app version
         run: |
-          echo "version is: ${{ env.appVersion }}"
+          echo "backend app version is: ${{ env.appVersion }}"
 
          
 
